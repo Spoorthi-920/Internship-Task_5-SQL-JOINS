@@ -19,6 +19,7 @@ CREATE TABLE Orders (
     amount DECIMAL(10,2)
 );
 
+
 -- --------------------------------------------
 -- Step 2: Insert sample data
 -- --------------------------------------------
@@ -34,6 +35,7 @@ INSERT INTO Orders VALUES
 (102, 2, 'Mobile', 20000),
 (103, 2, 'Keyboard', 2500),
 (104, 5, 'Monitor', 12000); -- Customer not in Customers table
+
 
 -- --------------------------------------------
 -- Step 3: Demonstrate different types of JOINs
@@ -74,6 +76,7 @@ FROM Customers c
 RIGHT JOIN Orders o
 ON c.customer_id = o.customer_id;
 -- Shows all customers and all orders, including unmatched rows.
+
 
 -- --------------------------------------------
 -- Step 4: FULL OUTER JOIN in PostgreSQL
