@@ -9,8 +9,8 @@ This task demonstrates how to merge relational data using various SQL joins betw
 
 Joins:
 -  **INNER JOIN** – returns only matching records  
--  **LEFT JOIN** – returns all records from the left table  
--  **RIGHT JOIN** – returns all records from the right table  
+-  **LEFT JOIN** – returns all records from the left table and matched records 
+-  **RIGHT JOIN** – returns all records from the right table and matched records 
 -  **FULL OUTER JOIN** – returns all records from both tables  
   *(simulated using `UNION` in MySQL, supported directly in PostgreSQL)*
 
