@@ -1,7 +1,9 @@
 -- Task 5: SQL Joins
 -- A deeper dive into understanding different joins in sql
 
--- Create a sample dataset
+-- --------------------------------------------
+-- Step 1: Create a sample dataset
+-- --------------------------------------------
 -- Create Customers table
 CREATE TABLE Customers (
     customer_id INT PRIMARY KEY,
@@ -17,6 +19,10 @@ CREATE TABLE Orders (
     amount DECIMAL(10,2)
 );
 
+-- --------------------------------------------
+-- Step 2: Insert sample data
+-- --------------------------------------------
+
 INSERT INTO Customers VALUES
 (1, 'Alice', 'Bangalore'),
 (2, 'Bob', 'Hyderabad'),
@@ -29,6 +35,9 @@ INSERT INTO Orders VALUES
 (103, 2, 'Keyboard', 2500),
 (104, 5, 'Monitor', 12000); -- Customer not in Customers table
 
+-- --------------------------------------------
+-- Step 3: Demonstrate different types of JOINs
+-- --------------------------------------------
 
 -- 1. INNER JOIN: Returns only matching records from both tables.
 SELECT c.customer_name, o.product, o.amount
@@ -53,8 +62,8 @@ RIGHT JOIN Orders o
 ON c.customer_id = o.customer_id;
 -- Shows all orders —> even if the customer is missing from the Customers table.
 
-
--- 4. FULL JOIN: Returns all records when there’s a match in either table.
+-- 4. FULL OUTER JOIN: Returns all records when there’s a match in either table.
+--   MySQL doesn’t support FULL OUTER JOIN directly — use UNION
 SELECT c.customer_id, c.customer_name, o.order_id, o.product
 FROM Customers c
 LEFT JOIN Orders o
@@ -66,10 +75,11 @@ RIGHT JOIN Orders o
 ON c.customer_id = o.customer_id;
 -- Shows all customers and all orders, including unmatched rows.
 
--- Note: MySQL doesn’t support FULL OUTER JOIN directly. You can simulate it by combining a LEFT JOIN and a RIGHT JOIN using UNION.
--- Full outer join - In PostgreSQL
+-- --------------------------------------------
+-- Step 4: FULL OUTER JOIN in PostgreSQL
+-- --------------------------------------------
 SELECT c.customer_name, o.product, o.amount
 FROM Customers c
 FULL OUTER JOIN Orders o
 ON c.customer_id = o.customer_id;
-
+-- PostgreSQL supports FULL OUTER JOIN natively.
